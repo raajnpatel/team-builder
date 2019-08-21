@@ -1,24 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Form from "./Form"
 
 function App() {
+  const teamMembers = [
+    {
+      name: "Raajn",
+      email: "raajn@lambdaschool.com",
+      role: "Full-Stack Developer"
+    },
+    {
+      name: "Olive",
+      email: "olive@lambdaschool.com",
+      role: "Full-Stack Dogveloper"
+    },
+    {
+      name: "Casper",
+      email: "casper@lambdaschool.com",
+      role: "Web Design"
+    }
+  ];
+
+  const[team, setTeam] = useState(teamMembers);
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className = "App">
+      <h1>The Team</h1>
+      {team.map((member, index) => {
+        return (
+            <div key = {member.email}>
+              <h2>{member.name}</h2>
+              <p>{member.email}</p>
+              <p>{member.role}</p>
+              </div>
+        )})}
+      <Form />
+
     </div>
   );
 }
