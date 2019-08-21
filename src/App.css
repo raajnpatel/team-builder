@@ -37,3 +37,8 @@ form{
   flex-direction: column;
   margin: 2%;
 }
+
+button {
+  width: 20%;
+
+}

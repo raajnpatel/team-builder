@@ -2,7 +2,7 @@ import React from 'react';
 
 const Form = (props) => {
     return (
-        <form onSubmit={event => props.handleForm(event)}>
+        <form onSubmit={event => props.handleChange(event)}>
             <label>
                 Name:
                 <input

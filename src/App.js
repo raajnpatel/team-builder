@@ -9,7 +9,7 @@ function App() {
     role: ""
   });
 
-  const[team, setTeam] = useState([
+  const [team, setTeam] = useState([
     {
       name: "Raajn",
       email: "raajn@lambdaschool.com",
@@ -28,24 +28,26 @@ function App() {
   ]);
 
   const handleChange = event => {
-    setNewMember({ ...newMember, [event.target.name]: event.target.value })
+    setNewMember({...team, [event.target.name] : event.target.value});
     event.preventDefault();
+    console.log(event.target);
   };
 
   return (
-    <div className = "App">
-      <h1>The Team</h1>
-      {team.map((member, index) => {
-        return (
-            <div key = {member.email}>
-              <h2>{member.name}</h2>
-              <p>{member.email}</p>
-              <p>{member.role}</p>
+      <div className="App">
+        <h1>The Team</h1>
+        {team.map((member, index) => {
+          return (
+              <div key={member.email}>
+                <h2>{member.name}</h2>
+                <p>{member.email}</p>
+                <p>{member.role}</p>
               </div>
-        )})}
-      <Form handleChange = {handleChange} />
+          )
+        })}
+        <Form handleChange={handleChange}/>
 
-    </div>
+      </div>
   );
 }
 
