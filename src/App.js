@@ -3,7 +3,13 @@ import './App.css';
 import Form from "./Form"
 
 function App() {
-  const teamMembers = [
+  const [newMember, setNewMember] = useState({
+    name: "",
+    email: "",
+    role: ""
+  });
+
+  const[team, setTeam] = useState([
     {
       name: "Raajn",
       email: "raajn@lambdaschool.com",
@@ -19,10 +25,12 @@ function App() {
       email: "casper@lambdaschool.com",
       role: "Web Design"
     }
-  ];
+  ]);
 
-  const[team, setTeam] = useState(teamMembers);
-
+  const handleChange = event => {
+    setNewMember({ ...newMember, [event.target.name]: event.target.value })
+    event.preventDefault();
+  };
 
   return (
     <div className = "App">
@@ -35,7 +43,7 @@ function App() {
               <p>{member.role}</p>
               </div>
         )})}
-      <Form />
+      <Form handleChange = {handleChange} />
 
     </div>
   );

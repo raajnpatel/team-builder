@@ -1,22 +1,37 @@
 import React from 'react';
 
-const Form = () => {
+const Form = (props) => {
     return (
-    <form>
-        <label>
-            Username:
-            <input type="text" id="name" name="name" />
-        </label>
-        <label>
-            Email:
-            <input type="text" id="name" name="motto" />
-        </label>
-        <label>
-            Role:
-            <input type="text" id="name" name="role" />
-        </label>
-            <button type="submit">Submit!</button>
-    </form>
+        <form onSubmit={event => props.handleForm(event)}>
+            <label>
+                Name:
+                <input
+                    onChange={event => props.handleChange(event)}
+                    type="text"
+                    name="name"
+                />
+            </label>
+            <br />
+            <label>
+                Email:
+                <input
+                    onChange={event => props.handleChange(event)}
+                    type="email"
+                    name="email"
+                />
+            </label>
+            <br />
+            <label>
+                Role:
+                <input
+                    onChange={event => props.handleChange(event)}
+                    type="text"
+                    name="role"
+                />
+            </label>
+            <br />
+            <button>Submit!</button>
+        </form>
 )
 };
 
